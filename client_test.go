@@ -33,9 +33,9 @@ func TestClient_PaymentsRequest(t *testing.T) {
 			},
 		},
 		RedirectUrls: PaymentsRedirectUrlsRequest{
-			ConfirmUrlType: PaymentsConfirmUrlTypeClient,
-			ConfirmUrl:     CallbackHost + "/confirm",
-			CancelUrl:      CallbackHost + "/cancel",
+			ConfirmURLType: PaymentsConfirmUrlTypeClient,
+			ConfirmURL:     CallbackHost + "/confirm",
+			CancelURL:      CallbackHost + "/cancel",
 		},
 	}
 
@@ -80,9 +80,9 @@ func TestClient_PaymentsRequestAndConfirm(t *testing.T) {
 		RedirectUrls: PaymentsRedirectUrlsRequest{
 			// ConfirmUrl: path.Join(CallbackHost, "/confirm"),
 			// CancelUrl:  path.Join(CallbackHost, "/cancel"),
-			ConfirmUrlType: PaymentsConfirmUrlTypeClient,
-			ConfirmUrl:     CallbackHost + "/confirm",
-			CancelUrl:      CallbackHost + "/cancel",
+			ConfirmURLType: PaymentsConfirmUrlTypeClient,
+			ConfirmURL:     CallbackHost + "/confirm",
+			CancelURL:      CallbackHost + "/cancel",
 		},
 	}
 

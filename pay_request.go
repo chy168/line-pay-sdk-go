@@ -38,7 +38,7 @@ type PaymentsPackageRequest struct {
 type PaymentsPackageProductRequest struct {
 	ID            string `json:"id,omitempty"`
 	Name          string `json:"name"`
-	ImageUrl      string `json:"imageUrl,omitempty"`
+	ImageURL      string `json:"imageUrl,omitempty"`
 	Quantity      int    `json:"quantity"`
 	Price         int    `json:"price"`
 	OriginalPrice int    `json:"originalPrice,omitempty"`
@@ -58,9 +58,9 @@ const (
 // `CancelUrl` required
 type PaymentsRedirectUrlsRequest struct {
 	AppPackageName string `json:"appPackageName,omitempty"`
-	ConfirmUrl     string `json:"confirmUrl"`
-	ConfirmUrlType string `json:"confirmUrlType,omitempty"`
-	CancelUrl      string `json:"cancelUrl"`
+	ConfirmURL     string `json:"confirmUrl"`
+	ConfirmURLType string `json:"confirmUrlType,omitempty"`
+	CancelURL      string `json:"cancelUrl"`
 }
 
 type PaymentsOptionsRequest struct {
@@ -78,13 +78,13 @@ type PaymentsOptionsPaymentRequest struct {
 
 type PaymentsOptionsDisplayRequest struct {
 	Locale                 string `json:"locale,omitempty"` // en, ja, ko, th, zh_TW, zh_CN
-	CheckConfirmUrlBrowser bool   `json:"checkConfirmUrlBrowser,omitempty"`
+	CheckConfirmURLBrowser bool   `json:"checkConfirmUrlBrowser,omitempty"`
 }
 
 type PaymentsOptionsShippingRequest struct {
 	ShippintType   string                                `json:"type,omitempty"`      // NO_SHIPPING, FIXED_ADDRESS, SHIPPING
 	FeeAmount      string                                `json:"feeAmount,omitempty"` //why string?
-	FeeInquiryUrl  string                                `json:"feeInquiryUrl,omitempty"`
+	FeeInquiryURL  string                                `json:"feeInquiryUrl,omitempty"`
 	FeeInquiryType string                                `json:"feeInquiryType,omitempty"` // CONDITION, FIXED
 	Address        PaymentsOptionsShippingAddressRequest `json:"address"`
 }
@@ -119,7 +119,7 @@ type PaymentsOptionsFamilyServiceAddFriendsRequest struct {
 
 type PaymentsOptionsExtraRequest struct {
 	BranchName string `json:"branchName,omitempty"`
-	BranchId   string `json:"branchId,omitempty"`
+	BranchID   string `json:"branchId,omitempty"`
 }
 
 // response

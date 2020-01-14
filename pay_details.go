@@ -31,36 +31,48 @@ type PaymentsDetailsResponse struct {
 }
 
 type PaymentsDetailsInfoResponse struct {
-	TransactionID         int64                                   `json:"transactionId"`
-	TransactionDate       time.Time                               `json:"transactionDate"`
-	TransactionType       string                                  `json:"transactionType"`
-	PayInfo               []PaymentsDetailsInfoPayInfoResponse    `json:"payInfo"`
-	ProductName           string                                  `json:"productName"`
-	Currency              string                                  `json:"currency"`
-	OrderID               string                                  `json:"orderId"`
-	RefundList            []PaymentsDetailsInfoRefundListResponse `json:"refundList"`
-	Packages              []PaymentsDetailsInfoPackagesResponse   `json:"packages"`
-	Shipping              PaymentsDetailsInfoShippingResponse     `json:"shipping"`
-	Amount                int                                     `json:"amount"`
-	OriginalTransactionID int64                                   `json:"originalTransactionId"`
+	TransactionID           int64                                   `json:"transactionId"`
+	TransactionDate         time.Time                               `json:"transactionDate"`
+	TransactionType         string                                  `json:"transactionType"`
+	PayStatus               string                                  `json:"payStatus"` // AUTHORIZATION, VOIDED_AUTHORIZATION, EXPIRED_AUTHORIZATION
+	ProductName             string                                  `json:"productName"`
+	MerchantName            string                                  `json:"merchantName"`
+	Currency                string                                  `json:"currency"`
+	AuthorizationExpireDate time.Time                               `json:"authorizationExpireDate"`
+	PayInfo                 []PaymentsDetailsInfoPayInfoResponse    `json:"payInfo"`
+	RefundList              []PaymentsDetailsInfoRefundListResponse `json:"refundList"` // in case of `Transaction` type
+	OriginalTransactionID   int64                                   `json:"originalTransactionId"`
+	Packages                []PaymentsDetailsInfoPackagesResponse   `json:"packages"`
+	Shipping                PaymentsDetailsInfoShippingResponse     `json:"shipping"`
 }
 
 type PaymentsDetailsInfoPayInfoResponse struct {
-	Method string `json:"method"`
-	Amount int    `json:"amount"`
+	Method string `json:"method"` // CREDIT_CARD, BALANCE, DISCOUNT
+	Amount int    `json:"amount"` // sum(info[].payInfo[].amount) – sum(refundList[].refundAmount)
 }
 
 type PaymentsDetailsInfoRefundListResponse struct {
-	RefundTransactionID   string    `json:"refundTransactionId"`
-	TransactionType       string    `json:"transactionType"`
+	RefundTransactionID   int64     `json:"refundTransactionId"`
+	TransactionType       string    `json:"transactionType"` // PAYMENT_REFUND, PARTIAL_REFUND
 	RefundAmount          int       `json:"refundAmount"`
-	RefundTransactionDate time.Time `json:"refundTransactionDate,omitempty"`
+	RefundTransactionDate time.Time `json:"refundTransactionDate"`
 }
 
 type PaymentsDetailsInfoPackagesResponse struct {
+	ID            string                                        `json:"id"`
+	Amount        int                                           `json:"amount"`
+	UserFeeAmount int                                           `json:"userFeeAmount"`
+	Name          string                                        `json:"name"`
+	Products      []PaymentsDetailsInfoPackagesProductsResponse `json:"products"`
+}
+
+type PaymentsDetailsInfoPackagesProductsResponse struct {
 	ID            string `json:"id"`
-	Amount        int    `json:"amount"`
-	UserFeeAmount int    `json:"userFeeAmount"`
+	Name          string `json:"name"`
+	ImageURL      string `json:"imageUrl"`
+	Quantity      int    `json:"quantity"`
+	Price         int    `json:"price"`
+	OriginalPrice int    `json:"originalPrice"`
 }
 
 type PaymentsDetailsInfoShippingResponse struct {
@@ -84,8 +96,8 @@ type PaymentsDetailsInfoShippingAddressRecipientResponse struct {
 	LastName          string `json:"lastName"`
 	FirstNameOptional string `json:"firstNameOptional"`
 	LastNameOptional  string `json:"lastNameOptional"`
-	PhoneNo           string `json:"phoneNo"`
 	Email             string `json:"email"`
+	PhoneNo           string `json:"phoneNo"`
 }
 
 // PaymentsDetails

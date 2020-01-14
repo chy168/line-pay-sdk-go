@@ -17,10 +17,10 @@ func TestClient_PaymentsRequest(t *testing.T) {
 	data := PaymentsRequest{
 		Amount:   100,
 		Currency: "TWD",
-		OrderId:  "test_order_15",
+		OrderID:  "test_order_15",
 		Packages: []PaymentsPackageRequest{
 			PaymentsPackageRequest{
-				Id:     "pkg_id_1",
+				ID:     "pkg_id_1",
 				Amount: 100,
 				Name:   "pkg_name_1",
 				Products: []PaymentsPackageProductRequest{
@@ -62,10 +62,10 @@ func TestClient_PaymentsRequestAndConfirm(t *testing.T) {
 	data := PaymentsRequest{
 		Amount:   100,
 		Currency: "TWD",
-		OrderId:  "test_order_16",
+		OrderID:  "test_order_16",
 		Packages: []PaymentsPackageRequest{
 			PaymentsPackageRequest{
-				Id:     "pkg_id_1",
+				ID:     "pkg_id_1",
 				Amount: 100,
 				Name:   "pkg_name_1",
 				Products: []PaymentsPackageProductRequest{

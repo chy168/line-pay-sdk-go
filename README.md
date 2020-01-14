@@ -18,6 +18,8 @@ LINE Pay API SDK for Go
 - ⛔️ Pay Preapproved API
 - ⛔️ Expire RegKey API
 
+# Usage
+`go get -v github.com/chy168/line-pay-sdk-go`
 
 # LICENSE
 Apache 2.0

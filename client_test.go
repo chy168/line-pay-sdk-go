@@ -114,12 +114,12 @@ func TestClient_PaymentsConfirm(t *testing.T) {
 		return
 	}
 
-	data2 := PaymentsConfirm{
+	data2 := PaymentsConfirmRequest{
 		Amount:   100,
 		Currency: "TWD",
 	}
 
-	res2, err := client.PaymentsConfirm(2020010800227854310, &data2)
+	res2, err := client.PaymentsConfirm(context.Background(), 2020010800227854310, &data2)
 	if err != nil {
 		t.Errorf("Test PaymentsRequest failed: %s", err.Error())
 	}

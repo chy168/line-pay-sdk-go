@@ -9,7 +9,7 @@ import (
 )
 
 // Amount: [form.amount != sum(packages[].amount) + sum(packages[].userFee) + shippingFee]
-type PaymentsConfirm struct {
+type PaymentsConfirmRequest struct {
 	Amount   int    `json:"amount"`
 	Currency string `json:"currency"`
 }
@@ -19,10 +19,10 @@ type PaymentsConfirmResponse struct {
 	Currency string `json:"currency"`
 }
 
-func (client *Client) PaymentsConfirm(transactionId int64, request *PaymentsConfirm) (response *PaymentsConfirmResponse, err error) {
+func (client *Client) PaymentsConfirm(ctx context.Context, transactionId int64, request *PaymentsConfirmRequest) (response *PaymentsConfirmResponse, err error) {
 
 	body, err := json.Marshal(request)
-	res, err := client.post(context.Background(), fmt.Sprintf(endpointV3PaymentsConfirm, transactionId), body)
+	res, err := client.post(ctx, fmt.Sprintf(endpointV3PaymentsConfirm, transactionId), body)
 	if err != nil {
 		err = fmt.Errorf("PaymentsRequest post error = %v", err.Error())
 		return

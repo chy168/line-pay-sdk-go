@@ -7,19 +7,22 @@ LINE Pay API SDK for Go
 
 # Supported LINE Pay v3 APIs
 ---------------
-- ✅ Request API 
-- ✅ Confirm API 
-- ⛔️ Capture API
-- ⛔️ Void API
-- ⛔️ Refund API
-- ✅ Payment Details API 
-- ⛔️ Check Payment Status API
-- ⛔️ Check RegKey API
-- ⛔️ Pay Preapproved API
-- ⛔️ Expire RegKey API
+- [x] Request API 
+- [x] Confirm API 
+- [ ] Capture API
+- [ ] Void API
+- [ ] Refund API
+- [x] Payment Details API 
+- [ ] Check Payment Status API
+- [ ] Check RegKey API
+- [ ] Pay Preapproved API
+- [ ] Expire RegKey API
 
 # Usage
 `go get -v github.com/chy168/line-pay-sdk-go`
+
+# How to test
+replace necessary information in `data_test.go`, then you can `go test` what you want to try.
 
 # LICENSE
 Apache 2.0

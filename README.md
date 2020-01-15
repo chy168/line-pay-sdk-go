@@ -9,7 +9,7 @@ LINE Pay API SDK for Go
 ---------------
 - [x] Request API 
 - [x] Confirm API 
-- [ ] Capture API
+- [x] Capture API (not test yet)
 - [ ] Void API
 - [ ] Refund API
 - [x] Payment Details API 
@@ -19,10 +19,19 @@ LINE Pay API SDK for Go
 - [ ] Expire RegKey API
 
 # Usage
-`go get -v github.com/chy168/line-pay-sdk-go`
+```
+go get -v github.com/chy168/line-pay-sdk-go
+```
 
 # How to test
+## develop
 replace necessary information in `data_test.go`, then you can `go test` what you want to try.
+
+## test
+there is a built in web server to perform confirm api by transaction (can be used as confirmURL)
+```
+go run examples/cmd/callback_server.go --channel-id=<YOUR_CHANNEL_ID> --channel-secret=<YOUR_CHANNEL_SECRET>
+```
 
 # LICENSE
 Apache 2.0

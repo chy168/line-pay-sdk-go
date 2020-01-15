@@ -22,6 +22,9 @@ const (
 
 	// GET /v3/payments
 	endpointV3PaymentsDetails = "/v3/payments"
+
+	// POST /v3/payments/authorizations/{transactionId}/capture
+	endpointV3PaymentsCapture = "/v3/payments/authorizations/%d/capture"
 )
 
 type Client struct {
